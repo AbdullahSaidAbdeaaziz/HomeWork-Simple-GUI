@@ -2,10 +2,10 @@
 Simple GUI
 # First Frame 
 ---
-![Simple GUI](Sheets.png)
+![HomeWork-Simple-GUI](Sheets.png)
 ## Second Frame 
 ---
-![Simple GUI](Sheet7.png)
+![HomeWork-Simple-GUI](Sheet7.png)
 ## Third Frame
 ---
-![Simple GUI](Sheet8.png)
+![HomeWork-Simple-GUI](Sheet8.png)
