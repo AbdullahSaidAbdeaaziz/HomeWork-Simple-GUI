@@ -1,5 +1,7 @@
 package com.Abdullah;
 
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,6 +12,12 @@ public class Sheet8 extends JFrame  {
 	private JLabel positionOFMouse = new JLabel("position on Screen 0 X 0 Y");
 	private int countClick = 0;
 	private JLabel ex1 = new JLabel("Exercise 1, 2");
+	protected JRadioButton [] colors = new JRadioButton[5];
+	protected JComboBox shapes = new JComboBox(new String[] {"None","Line", "Square", "Circle"});
+	protected int count = 0;
+	private  mPanel shapesPanel = new mPanel();
+//	protected  Color selectedColor = new Color(244, 244, 244);
+
 	Sheet8() {
 		Task12();
 
@@ -29,9 +37,54 @@ public class Sheet8 extends JFrame  {
 			public void mouseMoved(MouseEvent e) {
 				super.mouseMoved(e);
 				positionOFMouse.setBounds(e.getX()+10, e.getY()-60, 200, 100);
-				positionOFMouse.setText(String.valueOf("pos ("+e.getX()) + " X  " + e.getY() + " Y)");
+				positionOFMouse.setText("pos (" + e.getX() + " X  " + e.getY() + " Y)");
 			}
 		});
+		this.add(shapes);
+		shapes.addActionListener(e -> {
+			if (shapes.getSelectedItem().equals("Line")) {
+				shapesPanel.setShapes(mPanel.Drawshapes.LINE);
+				shapesPanel.repaint();
+			}
+			else if (shapes.getSelectedItem().equals("Square")) {
+				shapesPanel.setShapes(mPanel.Drawshapes.SQUARE);
+				shapesPanel.repaint();
+			}
+			else if (shapes.getSelectedItem().equals("Circle")) {
+				shapesPanel.setShapes(mPanel.Drawshapes.CIRCLE);
+				shapesPanel.repaint();
+			}
+		});
+
+		colors[0] = new JRadioButton("Red");
+		colors[0].addActionListener(e ->  {
+			shapesPanel.setSelectedColor(Color.RED);
+			shapesPanel.repaint();
+		});
+		colors[1] = new JRadioButton("Green");
+		colors[1].addActionListener(e -> {shapesPanel.setSelectedColor(Color.GREEN);
+			shapesPanel.repaint();
+		});
+		colors[2] = new JRadioButton("Blue");
+		colors[2].addActionListener(e -> shapesPanel.setSelectedColor(Color.BLUE));
+		colors[3] = new JRadioButton("Black");
+		colors[3].addActionListener(e ->  shapesPanel.setSelectedColor(Color.BLACK));
+		colors[4] = new JRadioButton("Yellow");
+		colors[4].addActionListener(e -> shapesPanel.setSelectedColor(Color.YELLOW));
+		ButtonGroup collect = new ButtonGroup();
+		JLabel ex3 = new JLabel("Exercise 3");
+		this.add(ex3);
+		ex3.setBounds(30, 300, 80, 20);
+		ex3.setFont(new Font("Comic Sans", Font.ITALIC, 16));
+		for (var c : colors) {
+			collect.add(c);
+			c.setBounds(270 + count * 100,350, 70, 20);
+			c.setBackground(new Color(224, 222, 222));
+			this.add(c);
+			++count;
+		}
+		shapes.setBounds(400, 400, 70, 20);
+		this.add(shapesPanel);
 	}
 
 	private void Task12() {
@@ -68,7 +121,7 @@ public class Sheet8 extends JFrame  {
 				public void mouseMoved(MouseEvent e) {
 					super.mouseMoved(e);
 
-					positionOFMouse.setText(String.valueOf("pos ("+e.getX()) + " X  " + e.getY() + " Y)");
+					positionOFMouse.setText("pos (" + e.getX() + " X  " + e.getY() + " Y)");
 				}
 			});
 			content.setBounds(110, 100, 250, 130);
@@ -77,14 +130,9 @@ public class Sheet8 extends JFrame  {
 				@Override
 				public void mouseMoved(MouseEvent e) {
 					super.mouseMoved(e);
-					positionOFMouse.setText(String.valueOf("pos ("+e.getX()) + " X  " + e.getY() + " Y)");
+					positionOFMouse.setText("pos ("+e.getX() + " X  " + e.getY() + " Y)");
 				}
 			});
-			content.addMouseWheelListener(new MouseWheelListener() {
-				@Override
-				public void mouseWheelMoved(MouseWheelEvent e) {
-
-				}
-			});
+			
 		}
 }

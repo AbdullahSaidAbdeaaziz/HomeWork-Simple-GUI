@@ -2,10 +2,6 @@ package com.Abdullah;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
-
 final class MainContain extends JFrame{
 	private final int screenHeight = 600;
 	private final int screenWidth = 600;
@@ -23,7 +19,7 @@ final class MainContain extends JFrame{
 		});
 		this.setTitle("SHEETS");
 		JLabel information = new JLabel(String.format("%10s %50s","Department : CS","Name : Abdullah Said Abdeaaziz"));
-		information.setFont(new Font("Aleo", Font.BOLD, 16));
+		information.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
 		JLabel h = new JLabel("WELCOME");
 		h.setFont(new Font("", Font.BOLD, 20));
 		h.setForeground(Color.BLACK);
