@@ -66,11 +66,20 @@ public class Sheet8 extends JFrame  {
 			shapesPanel.repaint();
 		});
 		colors[2] = new JRadioButton("Blue");
-		colors[2].addActionListener(e -> shapesPanel.setSelectedColor(Color.BLUE));
+		colors[2].addActionListener(e -> {
+			shapesPanel.setSelectedColor(Color.BLUE);
+			shapesPanel.repaint();
+		});
 		colors[3] = new JRadioButton("Black");
-		colors[3].addActionListener(e ->  shapesPanel.setSelectedColor(Color.BLACK));
+		colors[3].addActionListener(e ->  {
+			shapesPanel.setSelectedColor(Color.BLACK);
+			shapesPanel.repaint();
+		});
 		colors[4] = new JRadioButton("Yellow");
-		colors[4].addActionListener(e -> shapesPanel.setSelectedColor(Color.YELLOW));
+		colors[4].addActionListener(e -> {
+			shapesPanel.setSelectedColor(Color.YELLOW);
+			shapesPanel.repaint();
+		});
 		ButtonGroup collect = new ButtonGroup();
 		JLabel ex3 = new JLabel("Exercise 3");
 		this.add(ex3);

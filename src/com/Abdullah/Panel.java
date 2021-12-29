@@ -43,24 +43,28 @@ class mPanel  extends JPanel {
 			}
 		});
 	}
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
+	public void paint(Graphics g) {
+		super.paint(g);
 		Graphics2D shape = (Graphics2D) g;
+		shape.setColor(selectedColor);
 		switch (shapes) {
 			case LINE -> {
-				shape.setColor(selectedColor);
+				;
 				shape.setStroke(new BasicStroke(5));
 				shape.drawLine(begin.x, begin.y, end.x, end.y);
+				selectedColor = null;
 			}
 			case SQUARE -> {
 				shape.setColor(selectedColor);
 				shape.setStroke(new BasicStroke(5));
 				shape.drawRect(begin.x, begin.y, 80, 80);
+				selectedColor = null;
 			}
 			case CIRCLE -> {
 				shape.setColor(selectedColor);
 				shape.setStroke(new BasicStroke(5));
 				shape.drawOval(begin.x, begin.y, 80, 80);
+				selectedColor = null;
 			}
 		}
 	}
