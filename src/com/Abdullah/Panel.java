@@ -30,10 +30,15 @@ class mPanel  extends JPanel {
 		this.setBounds(250, 500, 500 , 250);
 		this.addMouseListener(new MouseAdapter() {
 			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				begin = new Point(e.getX(), e.getY());
+				repaint();
+			}
+			@Override
 			public void mousePressed(MouseEvent e) {
 				super.mousePressed(e);
 				begin = new Point(e.getX(), e.getY());
-
 			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -50,21 +55,21 @@ class mPanel  extends JPanel {
 		switch (shapes) {
 			case LINE -> {
 				;
-				shape.setStroke(new BasicStroke(5));
+				shape.setStroke(new BasicStroke(4));
 				shape.drawLine(begin.x, begin.y, end.x, end.y);
-				selectedColor = null;
+				
 			}
 			case SQUARE -> {
 				shape.setColor(selectedColor);
 				shape.setStroke(new BasicStroke(5));
 				shape.drawRect(begin.x, begin.y, 80, 80);
-				selectedColor = null;
+
 			}
 			case CIRCLE -> {
 				shape.setColor(selectedColor);
 				shape.setStroke(new BasicStroke(5));
 				shape.drawOval(begin.x, begin.y, 80, 80);
-				selectedColor = null;
+
 			}
 		}
 	}

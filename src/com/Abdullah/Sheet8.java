@@ -53,32 +53,33 @@ public class Sheet8 extends JFrame  {
 			else if (shapes.getSelectedItem().equals("Circle")) {
 				shapesPanel.setShapes(mPanel.Drawshapes.CIRCLE);
 				shapesPanel.repaint();
+			} else {
+				shapesPanel.setShapes(null);
 			}
 		});
 
 		colors[0] = new JRadioButton("Red");
 		colors[0].addActionListener(e ->  {
 			shapesPanel.setSelectedColor(Color.RED);
-			shapesPanel.repaint();
 		});
 		colors[1] = new JRadioButton("Green");
 		colors[1].addActionListener(e -> {shapesPanel.setSelectedColor(Color.GREEN);
-			shapesPanel.repaint();
+
 		});
 		colors[2] = new JRadioButton("Blue");
 		colors[2].addActionListener(e -> {
 			shapesPanel.setSelectedColor(Color.BLUE);
-			shapesPanel.repaint();
+
 		});
 		colors[3] = new JRadioButton("Black");
 		colors[3].addActionListener(e ->  {
 			shapesPanel.setSelectedColor(Color.BLACK);
-			shapesPanel.repaint();
+
 		});
 		colors[4] = new JRadioButton("Yellow");
 		colors[4].addActionListener(e -> {
 			shapesPanel.setSelectedColor(Color.YELLOW);
-			shapesPanel.repaint();
+
 		});
 		ButtonGroup collect = new ButtonGroup();
 		JLabel ex3 = new JLabel("Exercise 3");
